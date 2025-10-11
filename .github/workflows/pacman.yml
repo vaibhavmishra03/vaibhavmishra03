@@ -1,31 +1,35 @@
 name: Generate Pac-Man Contribution Graph
+
+# Run every day at midnight UTC, or manually via workflow_dispatch
 on:
   schedule:
-    - cron: "0 0 * * *" # runs every day at midnight UTC
+    - cron: "0 0 * * *"
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: write   # allows pushing to output branch
+      contents: write  # Allows pushing to the branch
 
     steps:
+      # 1️⃣ Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Generate Pac-Man graph
+      # 2️⃣ Generate Pac-Man graph
+      - name: Generate Pac-Man Contribution Graph
         uses: yoshi389111/github-profile-3d-contrib@v0.9.1
-        with:
+        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USERNAME: vaibhavmishra03
           SETTINGS: pacman
 
+      # 3️⃣ Deploy generated SVGs to 'output' branch
       - name: Deploy to output branch
         uses: crazy-max/ghaction-github-pages@v3
         with:
-          target_branch: output
-          build_dir: profile-3d-contrib
+          target_branch: output       # Branch where SVGs will go
+          build_dir: profile-3d-contrib  # Folder with generated SVGs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
