@@ -119,6 +119,10 @@
 <img src="https://raw.githubusercontent.com/vaibhavmishra03/vaibhavmishra03/output/snake.svg" alt="Snake animation" />
 
 ###
+<div align="center">
+  <img src="./profile-3d-contrib/profile-green-animate.svg" alt="3D Contribution Graph" />
+</div>
+
 
 <div>
   <img style="100%" src="https://capsule-render.vercel.app/api?type=waving&height=100&section=header&reversal=false&text=Let's%20Connect&fontSize=70&fontColor=FFFFFF&fontAlign=50&fontAlignY=50&stroke=-&animation=twinkling&descSize=20&descAlign=50&descAlignY=50&theme=cobalt"  />
